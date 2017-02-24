@@ -34,6 +34,34 @@ const test5 = {
     c2: 1
   }
 };
+const test6 = {
+  a: {
+    a1: 2,
+    a2: 2
+  },
+  b: 2,
+  c: {
+    c1: 2,
+    c2: {
+      c21: 2
+    },
+    c3: 2
+  }
+};
+const test7 = {
+  a: {
+    a1: 2,
+    a2: 3
+  },
+  b: 2,
+  c: {
+    c1: 2,
+    c2: {
+      c21: 2
+    },
+    c3: 2
+  }
+};
 
 describe('equal leaves', () => {
   describe('simple trees, two nodes', () => {
@@ -53,6 +81,12 @@ describe('equal leaves', () => {
     });
     it ('unequal but contains equal sub-tree', () => {
       assert.isNotTrue(equal(test5));
+    });
+    it ('equal tree, sub-tree as first node', () => {
+      assert.isTrue(equal(test6));
+    });
+    it ('unequal tree, sub-tree as first node', () => {
+      assert.isNotTrue(equal(test7));
     });
   });
 });
